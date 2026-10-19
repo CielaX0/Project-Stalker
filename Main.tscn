@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://deepapd7abc7v"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_ps246"]
+size = Vector3(12, 0.3, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ps246"]
+size = Vector3(12, 0.3, 12)
+
 [node name="Node3D" type="Node3D" unique_id=1056140497]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=60656261]
+
+[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=746006163]
+mesh = SubResource("BoxMesh_ps246")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2146446302]
+shape = SubResource("BoxShape3D_ps246")
