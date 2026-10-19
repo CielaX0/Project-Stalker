@@ -1,17 +1,26 @@
 [gd_scene format=3 uid="uid://deepapd7abc7v"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ps246"]
-size = Vector3(12, 0.3, 12)
+[ext_resource type="MeshLibrary" uid="uid://dp82yp2e5mpe3" path="res://Assets/Protyping Mesh Library.meshlib" id="1_glv2v"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ps246"]
-size = Vector3(12, 0.3, 12)
+[sub_resource type="BoxMesh" id="BoxMesh_afle1"]
+size = Vector3(50, 0.2, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05xvm"]
+size = Vector3(50, 0.2, 50)
 
 [node name="Node3D" type="Node3D" unique_id=1056140497]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=60656261]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=574757220]
 
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=746006163]
-mesh = SubResource("BoxMesh_ps246")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1161769411]
+mesh = SubResource("BoxMesh_afle1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2146446302]
-shape = SubResource("BoxShape3D_ps246")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=869405954]
+shape = SubResource("BoxShape3D_05xvm")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=72993441]
+mesh_library = ExtResource("1_glv2v")
+data = {
+"cells": PackedInt32Array(-65527, 65530, 1441860, -65529, 65528, 655419, -65531, 65528, 655419, -65533, 65528, 655419, -65529, 65530, 655419, -65531, 65530, 655419, -65533, 65530, 655425, -65535, 65528, 1441857, -65533, 65534, 65, -65535, 65534, 59, -1, 65534, 59, -3, 65534, 59, -7, 65534, 1441857, -7, 65532, 1441851, -7, 65530, 1441851, -7, 65528, 1441851, -7, 65524, 655425, -65535, 65524, 1048641, -3, 65524, 59, -1, 65524, 59)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
