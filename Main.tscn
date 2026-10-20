@@ -1,6 +1,22 @@
 [gd_scene format=3 uid="uid://deepapd7abc7v"]
 
 [ext_resource type="MeshLibrary" uid="uid://dp82yp2e5mpe3" path="res://Assets/Protyping Mesh Library.meshlib" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://cpxuavvlwqswn" path="res://Player.tscn" id="2_uu6xs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05xvm"]
+
+[sub_resource type="Sky" id="Sky_afle1"]
+sky_material = SubResource("ProceduralSkyMaterial_05xvm")
+
+[sub_resource type="Environment" id="Environment_ps246"]
+background_mode = 2
+background_energy_multiplier = 1.99
+sky = SubResource("Sky_afle1")
+ambient_light_source = 3
+ambient_light_color = Color(0.5749988, 0.9348017, 0.8299676, 1)
+ambient_light_energy = 6.03
+reflected_light_source = 2
+ssr_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_afle1"]
 size = Vector3(50, 0.2, 50)
@@ -8,7 +24,10 @@ size = Vector3(50, 0.2, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_05xvm"]
 size = Vector3(50, 0.2, 50)
 
-[node name="Node3D" type="Node3D" unique_id=1056140497]
+[node name="Main" type="Node3D" unique_id=1056140497]
+
+[node name="DevSkybox" type="WorldEnvironment" parent="." unique_id=2136209828]
+environment = SubResource("Environment_ps246")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=574757220]
 
@@ -19,8 +38,17 @@ mesh = SubResource("BoxMesh_afle1")
 shape = SubResource("BoxShape3D_05xvm")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=72993441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08, 0)
 mesh_library = ExtResource("1_glv2v")
 data = {
-"cells": PackedInt32Array(-65527, 65530, 1441860, -65529, 65528, 655419, -65531, 65528, 655419, -65533, 65528, 655419, -65529, 65530, 655419, -65531, 65530, 655419, -65533, 65530, 655425, -65535, 65528, 1441857, -65533, 65534, 65, -65535, 65534, 59, -1, 65534, 59, -3, 65534, 59, -7, 65534, 1441857, -7, 65532, 1441851, -7, 65530, 1441851, -7, 65528, 1441851, -7, 65524, 655425, -65535, 65524, 1048641, -3, 65524, 59, -1, 65524, 59)
+"cells": PackedInt32Array(-11, 65525, 983098, -11, 65526, 983098, -11, 65527, 983098, -11, 65528, 983098, -11, 65529, 983098, -11, 65530, 983098, -11, 65531, 983098, -11, 65532, 983098, -9, 65523, 720954, -8, 65523, 720954, -7, 65523, 720954, -6, 65523, 720954, -5, 65523, 720954, -4, 65523, 720954, -3, 65523, 720954, -2, 65523, 720954, -2, 65525, 983098, -2, 65526, 983098, -2, 65527, 983098, -2, 65528, 983098, -2, 65529, 983098, -2, 65530, 983098, -2, 65531, 983098, -2, 65532, 983098, -4, 65532, 655428, -6, 65532, 655418, -7, 65532, 655418, -8, 65532, 655418, -9, 65532, 655418, -10, 65532, 655418)
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="Player" parent="." unique_id=1191241417 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3191786, 0)
+SPEED = 15.0
+JUMP_VELOCITY = 8.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1153744034]
+transform = Transform3D(1, 0, 0, 0, 0.93042046, 0.36649382, 0, -0.36649382, 0.93042046, 0, 10.159264, 14.955982)

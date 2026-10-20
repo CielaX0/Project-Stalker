@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpxuavvlwqswn"]
+
+[ext_resource type="Script" uid="uid://b2grrk4s76bu7" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://ivfyii61ywp6" path="res://addons/third_person_camera/third_person_camera.tscn" id="2_kpjcp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ps246"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_afle1"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1191241417]
+script = ExtResource("1_xhfnw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1430268912]
+mesh = SubResource("CapsuleMesh_ps246")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=94300423]
+shape = SubResource("CapsuleShape3D_afle1")
+
+[node name="ThirdPersonCamera" parent="." unique_id=644620425 instance=ExtResource("2_kpjcp")]
+transform = Transform3D(1, 0, 0, 0, 0.8521531, 0.5232927, 0, -0.5232927, 0.8521531, 0, 3.2401977, 5.1786947)
+invert_h = false

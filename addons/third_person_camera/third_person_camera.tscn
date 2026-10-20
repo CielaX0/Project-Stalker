@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ivfyii61ywp6"]
+
+[ext_resource type="Script" uid="uid://br52v88ac84jt" path="res://addons/third_person_camera/third_person_camera.gd" id="1_suley"]
+
+[node name="ThirdPersonCamera" type="Node3D" unique_id=644620425]
+script = ExtResource("1_suley")
+left = "left"
+right = "right"
+up = "up"
+down = "down"
+zoom_in = "zoom_in"
+zoom_out = "zoom_out"
+invert_h = true
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=256816408]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=688028567]
+unique_name_in_owner = true
